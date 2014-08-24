@@ -6,8 +6,8 @@ class Dashing.TimeSinceLast extends Dashing.Widget
     setInterval(@startTime, 500)
 
   onData: (data) ->
-    if(@get('since-date'))
-      localStorage.setItem(@get('id')+'_last_event', moment(new Date(@get('since-date'))).format())
+    if(@get('since_date'))
+      localStorage.setItem(@get('id')+'_last_event', moment(new Date(@get('since_date'))).format())
 
     @last_event = moment(new Date(localStorage.getItem(@get('id')+'_last_event')))
 
@@ -19,8 +19,8 @@ class Dashing.TimeSinceLast extends Dashing.Widget
     $(@node).css('background-color', @backgroundColor())
 
   backgroundColor: =>
-    if (@get('green-after'))
-      greenAfter = parseInt(@get('green-after'))
+    if (@get('green_after'))
+      greenAfter = parseInt(@get('green_after'))
     else
       greenAfter = 100
 
