@@ -1,13 +1,16 @@
 class Dashing.TimeSinceLast extends Dashing.Widget
 
   ready: ->
-    @last_event = moment(localStorage.getItem(@get('id')+'_last_event'))
-    @last_event = moment() unless @last_event
+    @last_event = moment(new Date(localStorage.getItem(@get('id')+'_last_event')))
+    @last_event = moment().format() unless @last_event
     setInterval(@startTime, 500)
 
   onData: (data) ->
-    localStorage.setItem(@get('id')+'_last_event', moment())
-    @last_event = moment()
+    if(@get('since-date'))
+      localStorage.setItem(@get('id')+'_last_event', moment(new Date(@get('since-date'))).format())
+    else
+      @last_event = moment(new Date(localStorage.getItem(@get('id')+'_last_event')))
+
     @set('time_past', moment(@last_event).fromNow())
     $(@node).fadeOut().css('background-color', @backgroundColor).fadeIn()
 
