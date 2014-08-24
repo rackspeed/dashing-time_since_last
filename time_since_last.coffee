@@ -8,8 +8,8 @@ class Dashing.TimeSinceLast extends Dashing.Widget
   onData: (data) ->
     if(@get('since-date'))
       localStorage.setItem(@get('id')+'_last_event', moment(new Date(@get('since-date'))).format())
-    else
-      @last_event = moment(new Date(localStorage.getItem(@get('id')+'_last_event')))
+
+    @last_event = moment(new Date(localStorage.getItem(@get('id')+'_last_event')))
 
     @set('time_past', moment(@last_event).fromNow())
     $(@node).fadeOut().css('background-color', @backgroundColor).fadeIn()
