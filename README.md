@@ -53,8 +53,7 @@ The second uses [RainbowVis-JS](https://github.com/anomal/RainbowVis-JS) to set 
 
 Have tips on making this better? Please leave a comment and/or fork the gist. Sending me a tweet on Twitter is probably a good idea as well!
 
-NEW
 # Notes
-Because of https://github.com/moment/moment/issues/1407 I have replaced moment() with moment().format and moment("some string representation") to moment(new Date("some string representation")).format().
+Because of https://github.com/moment/moment/issues/1407 I have replaced moment() with moment().format() and moment("some string representation") to moment(new Date("some string representation")).format(). This change was to ensure a consistent date/time object was stored in localStorage.
 
 I have renamed all attributes, e.g. green-after, to use an underscore instead, i.e. green_after. This is to allow a scheduled job to send an event to the widget.
