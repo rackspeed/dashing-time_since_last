@@ -2,7 +2,7 @@
 
 Simple [Dashing](http://shopify.github.com/dashing) widget that tracks time since a certain event. Time Since Last waits for request to be made to your instance of Dashing and will then reset the time since the last occurrence of whatever event you would like to track. An example could be the time since the last exception for one of your applications, or the time since the last accident on the workfloor (better keep that widget green)!
 
-The widget was made by [@hannesfostie](http://twitter.com/hannesfostie) for use [@openminds](http://www.openminds.be). If you end up using this widget, please send me a tweet! I'd love to hear about it.
+The widget was made by [@hannesfostie](http://twitter.com/hannesfostie) for use [@openminds](http://www.openminds.be). 
 
 # Dependencies
 
@@ -23,7 +23,10 @@ To include the widget in a dashboard, add the following snippet to the dashboard
 
 # Settings
 
-The `data-green-after`-attribute of the widget takes a number in seconds that have to pass in order for the widget to turn green. You can remove this, and the widget will default to turning the widget green after 100 seconds.
+The `data-green_after`-attribute of the widget takes a number in seconds that have to pass in order for the widget to turn green. You can remove this, and the widget will default to turning the widget green after 100 seconds.
+
+NEW
+The `data-since_date`-attribute of the widget takes a string representing a date and updates `data-time_past`-attribute. This is now the only way to set `data-time_past`-attribute.
 
 # Making things look nice
 
@@ -49,3 +52,9 @@ The second uses [RainbowVis-JS](https://github.com/anomal/RainbowVis-JS) to set 
 # Contributing
 
 Have tips on making this better? Please leave a comment and/or fork the gist. Sending me a tweet on Twitter is probably a good idea as well!
+
+NEW
+# Notes
+Because of https://github.com/moment/moment/issues/1407 I have replaced moment() with moment().format and moment("some string representation") to moment(new Date("some string representation")).format().
+
+I have renamed all attributes, e.g. green-after, to use an underscore instead, i.e. green_after. This is to allow a scheduled job to send an event to the widget.
