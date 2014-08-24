@@ -56,4 +56,6 @@ Have tips on making this better? Please leave a comment and/or fork the gist. Se
 # Notes
 Because of https://github.com/moment/moment/issues/1407 I have replaced moment() with moment().format() and moment("some string representation") to moment(new Date("some string representation")).format(). This change was to ensure a consistent date/time object was stored in localStorage.
 
-I have renamed all attributes, e.g. green-after, to use an underscore instead, i.e. green_after. This is to allow a scheduled job to send an event to the widget.
+I (@denhua) have renamed all attributes, e.g. green-after, to use an underscore instead, i.e. green_after. This is to allow a scheduled job to send an event to the widget.
+
+I (@denhua) have modified the semantics of class Dashing.TimeSinceLast so that a refresh of the dashboard page does not reset the counter of `data-time_past`-attribute. The `data-since_date`-attribute is new and is now the only way to update/reset the counter. You can now use a scheduled job to update the counter.
