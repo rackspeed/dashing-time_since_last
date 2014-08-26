@@ -59,3 +59,5 @@ Because of https://github.com/moment/moment/issues/1407 I have replaced moment()
 I (@denhua) have renamed all attributes, e.g. green-after, to use an underscore instead, i.e. green_after. This is to allow a scheduled job to send an event to the widget.
 
 I (@denhua) have modified the semantics of class Dashing.TimeSinceLast so that a refresh of the dashboard page does not reset the counter of `data-time_past`-attribute. The `data-since_date`-attribute is new and is now the only way to update/reset the counter. You can now use a scheduled job to update the counter.
+
+! (@denhua) have integrated a countdown to the display such that between -hour < 0 < hour will display a countdown/countup timer.
